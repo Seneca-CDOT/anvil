@@ -259,6 +259,7 @@ sub _scan_nmap_with_forks
 	} else {
   		for (my $i = $numericIP & $netmask; $i <= (($numericIP & $netmask) | (~$netmask & ~255)); $i += 256)
 	{
+		if (false) {
 		defined(my $pid = fork) or die "Can't fork(), error was: $!\n";
 		if ($pid)
 		{
@@ -295,6 +296,10 @@ sub _scan_nmap_with_forks
 
 			# Kill the child process.
 			exit;
+		}
+		} else {
+			my $output_file = $anvil->data->{scan}{path}{child_output} . "/segment.$i.out";
+			print $anvil->data->{scan}{path}{nmap} . " " . $anvil->data->{scan}{sys}{nmap_switches} . " $scan_range > $output_file";
 		}
 	}
 	# Now loop until both child processes are dead.
