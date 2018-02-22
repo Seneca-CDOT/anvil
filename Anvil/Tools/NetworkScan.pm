@@ -254,12 +254,16 @@ sub _scan_nmap_with_forks
         $octetC = $octetC * (2**8);
         my $numericIP = $octetA + $octetB + $octetC + $octetD;
 
+	print "cidr:\t$cidr\nnetmask: $netmask\nnumericIP: $numericIP\n";
+
 	if ($cidr < 12) {
         	print "Scan is too large! Please scan no larger than a /12\n";
 	} else {
-  		for (my $i = $numericIP & $netmask; $i <= (($numericIP & $netmask) | (~$netmask & ~255)); $i += 256)
+		print "start: " . (0 + ($numericIP & $netmask)) . "\nend: " . (0+(($numericIP & $netmask) | (~$netmask & ~255)) & 2**32 -1 ) . "\n";
+  		for (my $i = $numericIP & $netmask; $i <= ((($numericIP & $netmask) | (~$netmask & ~255)) & 2**32-1) ; $i += 256)
 	{
-		if (false) {
+		print "i: $i\n";
+		if (0) {
 		defined(my $pid = fork) or die "Can't fork(), error was: $!\n";
 		if ($pid)
 		{
@@ -298,9 +302,21 @@ sub _scan_nmap_with_forks
 			exit;
 		}
 		} else {
-			my $output_file = $anvil->data->{scan}{path}{child_output} . "/segment.$i.out";
-			print $anvil->data->{scan}{path}{nmap} . " " . $anvil->data->{scan}{sys}{nmap_switches} . " $scan_range > $output_file";
+			# !!! 
+                        my $octet0 = "0/24";
+                        my $octet1 = ($i >> 8) & 255;
+                        my $octet2 = ($i >> 16) & 255;
+                        my $octet3 = ($i >> 24) & 255;
+                        my $sleep_segment = 0;
+                        # This is the child thread, so do the call.
+                        # Note that, without the 'die', we could end
+                        # up here if the fork() failed.
+                        sleep(($sleep_segment * $anvil->data->{scan}{sys}{time_per_nmap_fork}) / 1000);
+                        my $output_file = $anvil->data->{scan}{path}{child_output} . "/segment.$i.out";
+                        my $scan_range  = "$octet3".".$octet2".".$octet1".".$octet0";
+			print $anvil->data->{scan}{path}{nmap} . " " . $anvil->data->{scan}{sys}{nmap_switches} . " $scan_range > $output_file\n";
 		}
+	}
 	}
 	# Now loop until both child processes are dead.
 	# This helps to catch hung children.
