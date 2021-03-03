@@ -1,6 +1,5 @@
 declare type AnvilNodeStorage = {
   isMounted: boolean;
-  size: number;
-  used: number;
+  total: number;
   free: number;
 };

@@ -6,8 +6,7 @@ async function getAnvilMemory(
   const response: GetAnvilMemoryResponse = {
     memory: {
       total: 0,
-      available: 0,
-      allocated: 0,
+      free: 0,
     },
     error: null,
   };
