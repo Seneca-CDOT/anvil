@@ -1,0 +1,36 @@
+{
+  "9bf557d5-7cd1-4097-b34f-0e373df0522d": {
+    "file_systems": [
+      {
+        "mount_point": "/shared",
+        "nodes": [
+          {
+            "is_mounted": true,
+            "total": 42949672960,
+            "free": 11811160064
+          },
+          {
+            "is_mounted": false,
+            "total": 42949672960,
+            "free": 11811160064
+          }
+        ]
+      },
+      {
+        "mount_point": "/another_shared",
+        "nodes": [
+          {
+            "is_mounted": false,
+            "total": 11274289152,
+            "free": 7516192768
+          },
+          {
+            "is_mounted": false,
+            "total": 11274289152,
+            "free": 7516192768
+          }
+        ]
+      }
+    ]
+  }
+}

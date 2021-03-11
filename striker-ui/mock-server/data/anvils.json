@@ -1,0 +1,18 @@
+{
+  "anvils": [
+    {
+      "anvil_name": "Anvil 1",
+      "anvil_uuid": "9bf557d5-7cd1-4097-b34f-0e373df0522d",
+      "nodes": [
+        {
+          "node_name": "an-a01n01",
+          "node_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+        },
+        {
+          "node_name": "an-a01n02",
+          "node_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e"
+        }
+      ]
+    }
+  ]
+}
