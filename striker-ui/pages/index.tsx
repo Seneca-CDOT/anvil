@@ -1,67 +1,82 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-function Home(): JSX.Element {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import Anvils from '../components/Anvils';
+import Nodes from '../components/Nodes';
+import CPU from '../components/CPU';
+import SharedStorage from '../components/SharedStorage';
+import Memory from '../components/Memory';
+import Network from '../components/Network';
+import PeriodicFetch from '../lib/fetchers/periodicFetch';
+import Servers from '../components/Servers';
+import Header from '../components/Header';
+import AnvilProvider from '../components/AnvilContext';
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+const useStyles = makeStyles((theme) => ({
+  child: {
+    width: '22%',
+    height: '100%',
+    [theme.breakpoints.down('lg')]: {
+      width: '25%',
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    },
+  },
+  server: {
+    width: '35%',
+    height: '100%',
+    [theme.breakpoints.down('lg')]: {
+      width: '25%',
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    },
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+    [theme.breakpoints.down('md')]: {
+      display: 'block',
+    },
+  },
+}));
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+const Home = (): JSX.Element => {
+  const classes = useStyles();
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+  const { data } = PeriodicFetch<AnvilList>(
+    `${process.env.NEXT_PUBLIC_API_URL}/anvils/get_anvils`,
   );
-}
+
+  return (
+    <>
+      <AnvilProvider>
+        <Header />
+        {data?.anvils && (
+          <Box className={classes.container}>
+            <Box className={classes.child}>
+              <Anvils list={data} />
+              <Nodes anvil={data.anvils} />
+            </Box>
+            <Box className={classes.server}>
+              <Servers anvil={data.anvils} />
+            </Box>
+            <Box className={classes.child}>
+              <SharedStorage anvil={data.anvils} />
+            </Box>
+            <Box className={classes.child}>
+              <Network />
+              <CPU />
+              <Memory />
+            </Box>
+          </Box>
+        )}
+      </AnvilProvider>
+    </>
+  );
+};
 
 export default Home;

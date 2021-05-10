@@ -1,36 +1,37 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { DocumentInitialProps, DocumentContext } from 'next/document';
+import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@material-ui/styles';
+// import { ServerStyleSheet as StyledComponentSheets } from 'styled-components';
 
-class StyledDocument extends Document {
+class MyDocument extends Document {
   static async getInitialProps(
-    context: DocumentContext,
+    ctx: DocumentContext,
   ): Promise<DocumentInitialProps> {
-    const styleSheet = new ServerStyleSheet();
-    const originalRenderPage = context.renderPage;
+    const materialUiSheets = new MaterialUiServerStyleSheets();
+    const originalRenderPage = ctx.renderPage;
 
-    try {
-      context.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            styleSheet.collectStyles(<App {...props} />),
-        });
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) =>
+          materialUiSheets.collect(
+            <App
+              /* eslint-disable react/jsx-props-no-spreading */
+              {...props}
+            />,
+          ),
+      });
 
-      const initialProps = await Document.getInitialProps(context);
+    const initialProps = await Document.getInitialProps(ctx);
 
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {styleSheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      styleSheet.seal();
-    }
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {materialUiSheets.getStyleElement()}
+        </>
+      ),
+    };
   }
 }
 
-export default StyledDocument;
+export default MyDocument;
