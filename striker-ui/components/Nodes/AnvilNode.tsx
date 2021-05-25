@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { InnerPanel, PanelHeader } from '../Panels';
 import { ProgressBar } from '../Bars';
 import { BodyText } from '../Text';
-import nodeState from '../../lib/consts/NODES';
 import Decorator, { Colours } from '../Decorator';
+import NODE_STATUS from '../../lib/consts/NODES';
 
 import putJSON from '../../lib/fetchers/putJSON';
 
@@ -39,6 +39,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const selectStateMessage = (regex: RegExp, message: string): string => {
+  const msg = regex.exec(message);
+
+  if (msg) {
+    return NODE_STATUS.get(msg[0]) || 'Error code not recognized';
+  }
+  return 'Error code not found';
+};
+
 const selectDecorator = (state: string): Colours => {
   switch (state) {
     case 'ready':
@@ -59,6 +68,9 @@ const AnvilNode = ({
   nodes: Array<AnvilStatusNode & AnvilListItemNode>;
 }): JSX.Element => {
   const classes = useStyles();
+  const stateRegex = /^[a-zA-Z]/;
+  const messageRegex = /^(message_[0-9]+)/;
+
   return (
     <Box className={classes.root}>
       {nodes &&
@@ -76,7 +88,11 @@ const AnvilNode = ({
                     </Box>
                     <Box>
                       <BodyText
-                        text={nodeState.get(node.state) || 'Not Available'}
+                        text={
+                          node?.state?.replace(stateRegex, (c) =>
+                            c.toUpperCase(),
+                          ) || 'Not Available'
+                        }
                       />
                     </Box>
                   </Box>
@@ -115,11 +131,13 @@ const AnvilNode = ({
                 {node.state !== 'ready' && (
                   <>
                     <Box display="flex" width="100%" className={classes.state}>
-                      <Box flexGrow={1}>
-                        <BodyText text={`State: ${node.state}`} />
-                      </Box>
                       <Box>
-                        <BodyText text={node.state_message} />
+                        <BodyText
+                          text={selectStateMessage(
+                            messageRegex,
+                            node.state_message,
+                          )}
+                        />
                       </Box>
                     </Box>
                     <Box display="flex" width="100%" className={classes.bar}>
