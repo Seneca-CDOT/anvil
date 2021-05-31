@@ -1,4 +1,5 @@
 declare type AnvilMemory = {
   total: number;
-  free: number;
+  allocated: number;
+  reserved: number;
 };

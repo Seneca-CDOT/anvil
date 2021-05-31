@@ -50,7 +50,7 @@ const Servers = ({ anvil }: { anvil: AnvilListItem[] }): JSX.Element => {
   const classes = useStyles();
 
   const { data } = PeriodicFetch<AnvilServers>(
-    `${process.env.NEXT_PUBLIC_API_URL}/anvils/get_servers?anvil_uuid=${uuid}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/get_servers?anvil_uuid=${uuid}`,
   );
   return (
     <Panel>
@@ -88,14 +88,13 @@ const Servers = ({ anvil }: { anvil: AnvilListItem[] }): JSX.Element => {
                         anvil[
                           anvil.findIndex((a) => a.anvil_uuid === uuid)
                         ].hosts.map(
-                          (
-                            host: AnvilStatusHost,
-                            index: number,
-                          ): JSX.Element => (
+                          (host: AnvilStatusHost): JSX.Element => (
                             <Box p={1} key={host.host_uuid}>
                               <BodyText
                                 text={host.host_name}
-                                selected={server.server_host_index === index}
+                                selected={
+                                  server.server_host_uuid === host.host_uuid
+                                }
                               />
                             </Box>
                           ),
