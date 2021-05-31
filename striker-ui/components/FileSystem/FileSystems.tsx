@@ -4,7 +4,7 @@ import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { BodyText, HeaderText } from '../Text';
 import { Panel, InnerPanel, PanelHeader } from '../Panels';
-import SharedStorageHost from './SharedStorageHost';
+import SharedStorageHost from './FileSystemsHost';
 import PeriodicFetch from '../../lib/fetchers/periodicFetch';
 import { AnvilContext } from '../AnvilContext';
 import Spinner from '../Spinner';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SharedStorage = (): JSX.Element => {
+const SharedStorage = ({ anvil }: { anvil: AnvilListItem[] }): JSX.Element => {
   const classes = useStyles();
   const { uuid } = useContext(AnvilContext);
   const { data, isLoading } = PeriodicFetch<AnvilSharedStorage>(
@@ -35,21 +35,34 @@ const SharedStorage = (): JSX.Element => {
       <HeaderText text="Shared Storage" />
       {!isLoading ? (
         <Box className={classes.root}>
-          {data?.storage_groups &&
-            data.storage_groups.map(
-              (storageGroup: AnvilSharedStorageGroup): JSX.Element => (
-                <InnerPanel key={storageGroup.storage_group_uuid}>
+          {data?.file_systems &&
+            data.file_systems.map(
+              (fs: AnvilSharedStorageFileSystem): JSX.Element => (
+                <InnerPanel key={fs.mount_point}>
                   <PanelHeader>
                     <Box display="flex" width="100%" className={classes.header}>
                       <Box>
-                        <BodyText text={storageGroup.storage_group_name} />
+                        <BodyText text={fs.mount_point} />
                       </Box>
                     </Box>
                   </PanelHeader>
-                  <SharedStorageHost
-                    group={storageGroup}
-                    key={storageGroup.storage_group_uuid}
-                  />
+                  {fs?.hosts &&
+                    fs.hosts.map(
+                      (
+                        host: AnvilSharedStorageHost,
+                        index: number,
+                      ): JSX.Element => (
+                        <SharedStorageHost
+                          host={{
+                            ...host,
+                            ...anvil[
+                              anvil.findIndex((a) => a.anvil_uuid === uuid)
+                            ].hosts[index],
+                          }}
+                          key={fs.hosts[index].free}
+                        />
+                      ),
+                    )}
                 </InnerPanel>
               ),
             )}

@@ -115,7 +115,7 @@ const AnvilHost = ({
                   <Box>
                     <Switch
                       checked={host.state === 'online'}
-                      disabled={!host.removable}
+                      disabled={!(host.state === 'online')}
                       onChange={() =>
                         putJSON('/set_membership', {
                           host_uuid: host.host_uuid,
@@ -125,7 +125,7 @@ const AnvilHost = ({
                     />
                   </Box>
                 </Box>
-                {host.state !== 'online' && (
+                {host.state !== 'online' && host.state !== 'offline' && (
                   <>
                     <Box display="flex" width="100%" className={classes.state}>
                       <Box>
