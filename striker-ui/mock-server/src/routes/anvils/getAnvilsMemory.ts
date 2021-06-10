@@ -15,6 +15,8 @@ router.get('/', (req, res) => {
   let selectedAnvil = {};
 
   if (typeof anvil_uuid === 'string') selectedAnvil = parsedData[anvil_uuid];
+  console.log('get_memory');
+
   res.json(selectedAnvil);
 });
 

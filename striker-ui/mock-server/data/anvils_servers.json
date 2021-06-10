@@ -1,0 +1,138 @@
+{
+  "9bf557d5-7cd1-4097-b34f-0e373df0522d": {
+    "servers": [
+      {
+        "server_name": "srv01-app01",
+        "server_uuid": "a1349d69-b236-4c9f-8750-81cc164d9b67",
+        "server_state": "running",
+        "server_host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+      },
+      {
+        "server_name": "srv02-db01",
+        "server_uuid": "ef81a77d-ffc5-40ea-87e7-6b21c6e91bb7",
+        "server_state": "running",
+        "server_host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+      },
+      {
+        "server_name": "srv03-web01",
+        "server_uuid": "e9a2b19d-b33d-420c-90b1-c7db31139d46",
+        "server_state": "shut off",
+        "server_host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+      },
+      {
+        "server_name": "srv04-app02",
+        "server_uuid": "7483f5c4-6a92-4cc3-87c3-f966357c609d",
+        "server_state": "paused",
+        "server_host_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e"
+      },
+      {
+        "server_name": "srv05-app02",
+        "server_uuid": "75703e3b-e73e-446f-8fc0-b8f6be69457d",
+        "server_state": "shut off",
+        "server_host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+      },
+      {
+        "server_name": "srv06-db02",
+        "server_uuid": "75703e3b-e73e-446f-8fc0-b8f6be69457d",
+        "server_state": "crashed",
+        "server_host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+      },
+      {
+        "server_name": "srv07-web02",
+        "server_uuid": "6521577d-d879-4b1f-b35e-7a1d8383c1be",
+        "server_state": "pmsuspended",
+        "server_host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+      },
+      {
+        "server_name": "srv08-app02",
+        "server_uuid": "47bc6c1a-0704-471b-a195-4de0b8a4e5fc",
+        "server_state": "migrating",
+        "server_host_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e"
+      }
+    ]
+  },
+  "7f24774e-7d40-11eb-9439-0242ac130002": {
+    "servers": [
+      {
+        "server_name": "srv01-app01",
+        "server_uuid": "",
+        "server_state": "running",
+        "server_host_uuid": "94183e37-1d13-4d19-b870-62f15f2140fd"
+      },
+      {
+        "server_name": "srv04-app02",
+        "server_uuid": "",
+        "server_state": "paused",
+        "server_host_uuid": "8a6ef9a8-7d40-11eb-9439-0242ac130002"
+      },
+      {
+        "server_name": "srv05-app02",
+        "server_uuid": "",
+        "server_state": "shut off",
+        "server_host_uuid": "94183e37-1d13-4d19-b870-62f15f2140fd"
+      },
+      {
+        "server_name": "srv06-db02",
+        "server_uuid": "",
+        "server_state": "crashed",
+        "server_host_uuid": "94183e37-1d13-4d19-b870-62f15f2140fd"
+      },
+      {
+        "server_name": "srv07-web02",
+        "server_uuid": "",
+        "server_state": "pmsuspended",
+        "server_host_uuid": "94183e37-1d13-4d19-b870-62f15f2140fd"
+      },
+      {
+        "server_name": "srv08-app02",
+        "server_uuid": "",
+        "server_state": "migrating",
+        "server_host_uuid": "8a6ef9a8-7d40-11eb-9439-0242ac130002"
+      }
+    ]
+  },
+  "f50e3349-d415-471f-adb7-9890b16363bd": {
+    "servers": [
+      {
+        "server_name": "srv01-app01",
+        "server_uuid": "",
+        "server_state": "running",
+        "server_host_uuid": "ccb895ba-3351-4dcb-91c6-b0018c684a31"
+      },
+      {
+        "server_name": "srv02-db01",
+        "server_uuid": "",
+        "server_state": "running",
+        "server_host_uuid": "ccb895ba-3351-4dcb-91c6-b0018c684a31"
+      },
+      {
+        "server_name": "srv03-web01",
+        "server_uuid": "",
+        "server_state": "shut off",
+        "server_host_uuid": "ccb895ba-3351-4dcb-91c6-b0018c684a31"
+      },
+      {
+        "server_name": "srv07-web02",
+        "server_uuid": "",
+        "server_state": "pmsuspended",
+        "server_host_uuid": "ccb895ba-3351-4dcb-91c6-b0018c684a31"
+      },
+      {
+        "server_name": "srv08-app02",
+        "server_uuid": "",
+        "server_state": "migrating",
+        "server_host_uuid": "a7b6f0a2-2c93-4faf-b7f1-ff39df1c2d38"
+      }
+    ]
+  },
+  "e997970f-ef61-424e-b36b-8712d769e197": {
+    "servers": [
+      {
+        "server_name": "srv01-app01",
+        "server_uuid": "",
+        "server_state": "running",
+        "server_host_uuid": "14ff6093-fa09-421a-b91f-5eec0e75a207"
+      }
+    ]
+  }
+}

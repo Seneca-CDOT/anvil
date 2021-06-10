@@ -5,17 +5,21 @@ import path from 'path';
 const router = express.Router();
 
 const data = fs.readFileSync(
-  path.join(__dirname, '../../../data/anvils_shared_storage.json'),
+  path.join(__dirname, '../../../data/anvils_servers.json'),
 );
+const sleep = (ms: number) =>
+  new Promise((res) => setTimeout(() => res('waiting'), ms));
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   const { anvil_uuid } = req.query;
 
-  const parsedData: AnvilsSharedStorage = JSON.parse(data.toString());
+  const parsedData: AnvilsServer = JSON.parse(data.toString());
   let selectedAnvil = {};
 
   if (typeof anvil_uuid === 'string') selectedAnvil = parsedData[anvil_uuid];
-  console.log('get_shared_storage');
+  console.log('get_servers');
+
+  await sleep(2000);
 
   res.json(selectedAnvil);
 });

@@ -4,10 +4,10 @@ import path from 'path';
 
 const router = express.Router();
 
-// console.log(path.join(__dirname, '../../../data/anvils.json'));
 const data = fs.readFileSync(path.join(__dirname, '../../../data/anvils.json'));
 
 router.get('/', (req, res) => {
+  console.log('get_anvils');
   res.json(JSON.parse(data.toString()));
 });
 

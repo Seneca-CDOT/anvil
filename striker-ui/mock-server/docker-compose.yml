@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: 'nginx'
+    environment:
+      - HOST
+    volumes:
+      - ./nginx.conf.template:/etc/nginx/nginx.conf.template
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+      - ./build:/var/www/data
+    ports:
+      - 443:443
+    restart: unless-stopped
+    # This reloads nginx (and the SSL certificates) every 6 hours
+    command: /bin/sh -c "envsubst '$$HOST' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g 'daemon off;'"
+
+  certbot:
+    image: certbot/certbot
+    container_name: 'certbot'
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    restart: unless-stopped
+    # This will check if your certificate is up for renewal every 12 hours, as recommended by Let’s Encrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  server:
+    container_name: 'server'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000
+    restart: unless-stopped
+    depends_on:
+      - nginx
+
+  websockify:
+    image: efrecon/websockify:latest
+    volumes:
+      - ./certbot/conf:/opt/websockify/data
+    restart: unless-stopped
+    command: --cert=/opt/websockify/data/live/${HOST}/fullchain.pem  --key=/opt/websockify/data/live/${HOST}/privkey.pem 80 ${HOST}:5900
+    ports:
+      - 5000:80

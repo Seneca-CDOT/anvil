@@ -3,3 +3,8 @@
 
 # production
 /dist
+/build
+.env
+
+# Certificates
+certbot/

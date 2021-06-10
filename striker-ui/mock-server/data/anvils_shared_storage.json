@@ -1,35 +1,58 @@
 {
   "9bf557d5-7cd1-4097-b34f-0e373df0522d": {
-    "file_systems": [
+    "storage_groups": [
       {
-        "mount_point": "/shared",
-        "nodes": [
-          {
-            "is_mounted": true,
-            "total": 42949672960,
-            "free": 11811160064
-          },
-          {
-            "is_mounted": false,
-            "total": 42949672960,
-            "free": 11811160064
-          }
-        ]
+        "storage_group_uuid": "01b22f5a-09f6-460c-a819-afe94a9c9681",
+        "storage_group_name": "Storage Group 1",
+        "storage_group_total": 52949672960,
+        "storage_group_free": 4811160064
       },
       {
-        "mount_point": "/another_shared",
-        "nodes": [
-          {
-            "is_mounted": false,
-            "total": 11274289152,
-            "free": 7516192768
-          },
-          {
-            "is_mounted": false,
-            "total": 11274289152,
-            "free": 7516192768
-          }
-        ]
+        "storage_group_uuid": "7e4c815b-0d44-47b3-970c-e48c77cf3a86",
+        "storage_group_name": "Storage Group 2",
+        "storage_group_total": 52949672960,
+        "storage_group_free": 4811160064
+      }
+    ]
+  },
+  "7f24774e-7d40-11eb-9439-0242ac130002": {
+    "storage_groups": [
+      {
+        "storage_group_uuid": "f803810e-b2fb-493b-aa47-a6b1f039f06e",
+        "storage_group_name": "Storage Group 1",
+        "storage_group_total": 5294967296,
+        "storage_group_free": 481116006
+      },
+      {
+        "storage_group_name": "Storage Group 2",
+        "storage_group_total": 529496729600,
+        "storage_group_free": 48111600640
+      }
+    ]
+  },
+  "f50e3349-d415-471f-adb7-9890b16363bd": {
+    "storage_group": [
+      {
+        "storage_group_uuid": "76780031-1530-44d7-ade3-e6ac1a406b7d",
+        "storage_group_name": "Storage Pool 1",
+        "storage_group_total": 429496729600,
+        "storage_group_free": 118111600640
+      }
+    ]
+  },
+  "e997970f-ef61-424e-b36b-8712d769e197": {
+    "storage_group": [
+      {
+        "storage_group_uuid": "f4e80177-67bc-496b-8dbb-31d078c6826f",
+        "storage_group_name": "Storage Group 1",
+        "storage_group_total": 949672960,
+        "storage_group_free": 11160064
+      },
+      {
+        "storage_group_uuid": "f4e80177-67bc-496b-8dbb-31d078c6826f",
+        "storage_group_name": "Storage Group 2",
+        "storage_group_total": 949672960,
+        "storage_group_free": 811160064
       }
     ]
   }

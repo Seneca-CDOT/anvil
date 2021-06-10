@@ -1,0 +1,154 @@
+{
+  "a1349d69-b236-4c9f-8750-81cc164d9b67": {
+    "resource_name": "srv03-web",
+    "resource_host_uuid": "",
+    "is_active": true,
+    "timestamp": "",
+    "volumes": [
+      {
+        "number": 0,
+        "drbd_device_path": "/dev/drbd/by-res/srv03-web/0",
+        "drdb_devide_minor": 0,
+        "size": 85899345920,
+        "connections": [
+          {
+            "protocol": "sync_c",
+            "connection_state": "connected",
+            "fencing": "fencing",
+            "targets": [
+              {
+                "target_name": "an-a01n01",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "uptodate",
+                "role": "secondary",
+                "logical_volume_path": "/dev/an-a01n01_ssd0/srv03-web_0"
+              },
+              {
+                "target_name": "an-a01n02",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "uptodate",
+                "role": "primary",
+                "logical_volume_path": "/dev/an-a01n02_ssd0/srv03-web_0"
+              }
+            ]
+          },
+          {
+            "protocol": "sync_c",
+            "connection_state": "connecting",
+            "fencing": "fencing",
+            "targets": [
+              {
+                "target_name": "an-a01n01",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "uptodate",
+                "role": "secondary",
+                "logical_volume_path": "/dev/an-a01n01_ssd0/srv03-web_0"
+              },
+              {
+                "target_name": "an-a01dr01",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "unknown",
+                "role": "unknown",
+                "logical_volume_path": "/dev/an-a01dr01_ssd0/srv03-web_0"
+              }
+            ]
+          },
+          {
+            "protocol": "sync_c",
+            "connection_state": "connecting",
+            "fencing": "fencing",
+            "targets": [
+              {
+                "target_name": "an-a01n02",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "uptodate",
+                "role": "secondary",
+                "logical_volume_path": "/dev/an-a01n02_ssd0/srv03-web_0"
+              },
+              {
+                "target_name": "an-a01dr01",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "unknown",
+                "role": "unknown",
+                "logical_volume_path": "/dev/an-a01dr01_ssd0/srv03-web_0"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "drbd_device_path": "/dev/drbd/by-res/srv03-web/1",
+        "drdb_devide_minor": 0,
+        "size": 268435456000,
+        "connections": [
+          {
+            "protocol": "sync_c",
+            "connection_state": "synctarget",
+            "targets": [
+              {
+                "target_name": "an-a01n01",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "inconsistent",
+                "role": "secondary",
+                "logical_volume_path": "/dev/an-a01n01_ssd0/srv03-web_1"
+              },
+              {
+                "target_name": "an-a01n02",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "uptodate",
+                "role": "primary",
+                "logical_volume_path": "/dev/an-a01n02_ssd0/srv03-web_1"
+              }
+            ],
+            "resync": {
+              "rate": 115343360,
+              "percent_complete": 12,
+              "time_remain": 4530,
+              "oos_size": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ef81a77d-ffc5-40ea-87e7-6b21c6e91bb7": {
+    "resource_name": "srv04-app2",
+    "volumes": [
+      {
+        "index": 0,
+        "drbd_device_path": "/dev/drbd/by-res/srv04-app2/0",
+        "drdb_devide_minor": 0,
+        "size": 1649267441700,
+        "connections": [
+          {
+            "protocol": "sync_c",
+            "connection_state": "syncsource",
+            "fencing": "fencing",
+            "targets": [
+              {
+                "target_name": "an-a01n01",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "uptodate",
+                "role": "secondary",
+                "logical_volume_path": "/dev/an-a01n01_ssd0/srv04-app2_0"
+              },
+              {
+                "target_name": "an-a01n02",
+                "target_host_uuid": "targe_host_uuid",
+                "disk_state": "inconsistent",
+                "role": "secondary",
+                "logical_volume_path": "/dev/an-a01n02_ssd0/srv04-app2_0"
+              }
+            ],
+            "resync": {
+              "rate": 471859200,
+              "percent_complete": 95,
+              "time_remain": 195
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -4,14 +4,19 @@
     "threads": 16,
     "allocated": 3
   },
-  "70ce12f4-7d40-11eb-9439-0242ac130002": {
+  "7f24774e-7d40-11eb-9439-0242ac130002": {
     "cores": 4,
     "threads": 8,
     "allocated": 3
   },
-  "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e": {
+  "f50e3349-d415-471f-adb7-9890b16363bd": {
     "cores": 2,
     "threads": 4,
     "allocated": 2
+  },
+  "e997970f-ef61-424e-b36b-8712d769e197": {
+    "cores": 16,
+    "threads": 32,
+    "allocated": 8
   }
 }

@@ -1,0 +1,499 @@
+{
+  "9bf557d5-7cd1-4097-b34f-0e373df0522d": {
+    "hosts": [
+      {
+        "host_name": "an-a01n01",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 450,
+                "link_state": "degraded",
+                "is_active": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "host_name": "an-a01n02",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 1000,
+                "link_state": "down",
+                "is_active": false
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "7f24774e-7d40-11eb-9439-0242ac130002": {
+    "hosts": [
+      {
+        "host_name": "an-a01n01",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 450,
+                "link_state": "degraded",
+                "is_active": true
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "host_name": "an-a01n02",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 450,
+                "link_state": "degraded",
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "f50e3349-d415-471f-adb7-9890b16363bd": {
+    "hosts": [
+      {
+        "host_name": "an-a01n01",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 200,
+                "link_state": "degraded",
+                "is_active": true
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 450,
+                "link_state": "degraded",
+                "is_active": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "host_name": "an-a01n02",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "down",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "e997970f-ef61-424e-b36b-8712d769e197": {
+    "hosts": [
+      {
+        "host_name": "an-a01n01",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 1000,
+                "link_state": "down",
+                "is_active": true
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 200,
+                "link_state": "down",
+                "is_active": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "host_name": "an-a01n02",
+        "host_uuid": "",
+        "bonds": [
+          {
+            "bond_name": "bcn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "bcn_link1",
+                "link_speed": 1000,
+                "link_state": "down",
+                "is_active": false
+              },
+              {
+                "link_name": "bcn_link2",
+                "link_speed": 1000,
+                "link_state": "down",
+                "is_active": true
+              }
+            ]
+          },
+          {
+            "bond_name": "ifn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "ifn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "ifn_link2",
+                "link_speed": 1000,
+                "link_state": "down",
+                "is_active": false
+              }
+            ]
+          },
+          {
+            "bond_name": "sn_bond1",
+            "bond_uuid": "",
+            "links": [
+              {
+                "link_name": "sn_link1",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": true
+              },
+              {
+                "link_name": "sn_link2",
+                "link_speed": 1000,
+                "link_state": "optimal",
+                "is_active": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+}

@@ -1,0 +1,90 @@
+{
+  "9bf557d5-7cd1-4097-b34f-0e373df0522d": {
+    "anvil_state": "optimal",
+    "hosts": [
+      {
+        "state": "online",
+        "host_name": "an-a01n01",
+        "host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002",
+        "state_percent": 100,
+        "state_message": "message_0223, The node is a full cluster member.",
+        "removable": false
+      },
+      {
+        "state": "booted",
+        "host_name": "an-a01n02",
+        "host_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e",
+        "state_percent": 80,
+        "state_message": "message_0224, The node is coming online; the cluster resource manager is running (step 2/3).",
+        "removable": false
+      },
+      {}
+    ]
+  },
+  "7f24774e-7d40-11eb-9439-0242ac130002": {
+    "anvil_state": "not_ready",
+    "hosts": [
+      {
+        "state": "crmd",
+        "host_name": "an-a01n01",
+        "host_uuid": "94183e37-1d13-4d19-b870-62f15f2140fd",
+        "state_percent": 50,
+        "state_message": "message_0225, The node is coming online; the node is a consensus cluster member (step 1/3).",
+        "removable": false
+      },
+      {
+        "state": "booted",
+        "host_name": "an-a01n02",
+        "host_uuid": "8a6ef9a8-7d40-11eb-9439-0242ac130002",
+        "state_percent": 80,
+        "state_message": "message_0224, The node is coming online; the cluster resource manager is running (step 2/3).",
+        "removable": false
+      },
+      {}
+    ]
+  },
+  "f50e3349-d415-471f-adb7-9890b16363bd": {
+    "anvil_state": "degraded",
+    "hosts": [
+      {
+        "state": "online",
+        "host_name": "an-a01n01",
+        "host_uuid": "ccb895ba-3351-4dcb-91c6-b0018c684a31",
+        "state_percent": 100,
+        "state_message": "message_0223, The node is a full cluster member.",
+        "removable": false
+      },
+      {
+        "state": "online",
+        "host_name": "an-a01n02",
+        "host_uuid": "a7b6f0a2-2c93-4faf-b7f1-ff39df1c2d38",
+        "state_percent": 100,
+        "state_message": "message_0223, The node is a full cluster member.",
+        "removable": false
+      },
+      {}
+    ]
+  },
+  "e997970f-ef61-424e-b36b-8712d769e197": {
+    "anvil_state": "optimal",
+    "hosts": [
+      {
+        "state": "booted",
+        "host_name": "an-a01n01",
+        "host_uuid": "14ff6093-fa09-421a-b91f-5eec0e75a207",
+        "state_percent": 80,
+        "state_message": "message_0224, The node is coming online; the cluster resource manager is running (step 2/3).",
+        "removable": false
+      },
+      {
+        "state": "in_ccm",
+        "host_name": "an-a01n02",
+        "host_uuid": "db405136-5f37-4323-b47b-2c603898dfb2",
+        "state_percent": 50,
+        "state_message": "message_0225, The node is coming online; the node is a consensus cluster member (step 1/3).",
+        "removable": true
+      },
+      {}
+    ]
+  }
+}

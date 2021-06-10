@@ -1,0 +1,113 @@
+{
+  "9bf557d5-7cd1-4097-b34f-0e373df0522d": {
+    "file_systems": [
+      {
+        "mount_point": "/mnt/shared1",
+        "hosts": [
+          {
+            "host_name": "an-a01n01",
+            "host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002",
+            "is_mounted": true,
+            "total": 52949672960,
+            "free": 4811160064
+          },
+          {
+            "host_name": "an-a01n02",
+            "host_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e",
+            "is_mounted": false,
+            "total": 42949672960,
+            "free": 11811160064
+          }
+        ]
+      },
+      {
+        "mount_point": "/mnt/shared2",
+        "hosts": [
+          {
+            "host_name": "an-a01n01",
+            "host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002",
+            "is_mounted": false,
+            "total": 52949672960,
+            "free": 4811160064
+          },
+          {
+            "host_name": "an-a01n02",
+            "host_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e",
+            "is_mounted": true,
+            "total": 42949672960,
+            "free": 11811160064
+          }
+        ]
+      }
+    ]
+  },
+  "7f24774e-7d40-11eb-9439-0242ac130002": {
+    "file_systems": [
+      {
+        "mount_point": "/mnt/shared3",
+        "hosts": [
+          {
+            "host_name": "an-a01n01",
+            "host_uuid": "94183e37-1d13-4d19-b870-62f15f2140fd",
+            "is_mounted": true,
+            "total": 5294967296,
+            "free": 481116006
+          },
+          {
+            "host_name": "an-a01n02",
+            "host_uuid": "8a6ef9a8-7d40-11eb-9439-0242ac130002",
+            "is_mounted": false,
+            "total": 4294967296,
+            "free": 1181116006
+          }
+        ]
+      }
+    ]
+  },
+  "f50e3349-d415-471f-adb7-9890b16363bd": {
+    "file_systems": [
+      {
+        "mount_point": "/mnt/shared4",
+        "hosts": [
+          {
+            "host_name": "an-a01n01",
+            "host_uuid": "ccb895ba-3351-4dcb-91c6-b0018c684a31",
+            "is_mounted": true,
+            "total": 529496729600,
+            "free": 48111600640
+          },
+          {
+            "host_name": "an-a01n02",
+            "host_uuid": "a7b6f0a2-2c93-4faf-b7f1-ff39df1c2d38",
+            "is_mounted": false,
+            "total": 429496729600,
+            "free": 118111600640
+          }
+        ]
+      }
+    ]
+  },
+  "e997970f-ef61-424e-b36b-8712d769e197": {
+    "file_systems": [
+      {
+        "mount_point": "/mnt/shared5",
+        "hosts": [
+          {
+            "host_name": "an-a01n01",
+            "host_uuid": "14ff6093-fa09-421a-b91f-5eec0e75a207",
+            "is_mounted": true,
+            "total": 949672960,
+            "free": 11160064
+          },
+          {
+            "host_name": "an-a01n02",
+            "host_uuid": "db405136-5f37-4323-b47b-2c603898dfb2",
+            "is_mounted": false,
+            "total": 949672960,
+            "free": 811160064
+          }
+        ]
+      }
+    ]
+  }
+}

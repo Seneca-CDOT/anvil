@@ -3,15 +3,61 @@
     {
       "anvil_name": "Anvil 1",
       "anvil_uuid": "9bf557d5-7cd1-4097-b34f-0e373df0522d",
-      "nodes": [
+      "hosts": [
         {
-          "node_name": "an-a01n01",
-          "node_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
+          "host_name": "an-a01n01",
+          "host_uuid": "70ce12f4-7d40-11eb-9439-0242ac130002"
         },
         {
-          "node_name": "an-a01n02",
-          "node_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e"
-        }
+          "host_name": "an-a01n02",
+          "host_uuid": "71f9dadf-6b3e-4a7a-94fd-eb7471cd817e"
+        },
+        {}
+      ]
+    },
+    {
+      "anvil_name": "Anvil 2",
+      "anvil_uuid": "7f24774e-7d40-11eb-9439-0242ac130002",
+      "hosts": [
+        {
+          "host_name": "an-a01n01",
+          "host_uuid": "94183e37-1d13-4d19-b870-62f15f2140fd"
+        },
+        {
+          "host_name": "an-a01n02",
+          "host_uuid": "8a6ef9a8-7d40-11eb-9439-0242ac130002"
+        },
+        {}
+      ]
+    },
+    {
+      "anvil_name": "Anvil 3",
+      "anvil_uuid": "f50e3349-d415-471f-adb7-9890b16363bd",
+      "hosts": [
+        {
+          "host_name": "an-a01n01",
+          "host_uuid": "ccb895ba-3351-4dcb-91c6-b0018c684a31"
+        },
+        {
+          "host_name": "an-a01n02",
+          "host_uuid": "a7b6f0a2-2c93-4faf-b7f1-ff39df1c2d38"
+        },
+        {}
+      ]
+    },
+    {
+      "anvil_name": "Anvil 4",
+      "anvil_uuid": "e997970f-ef61-424e-b36b-8712d769e197",
+      "hosts": [
+        {
+          "host_name": "an-a01n01",
+          "host_uuid": "14ff6093-fa09-421a-b91f-5eec0e75a207"
+        },
+        {
+          "host_name": "an-a01n02",
+          "host_uuid": "db405136-5f37-4323-b47b-2c603898dfb2"
+        },
+        {}
       ]
     }
   ]

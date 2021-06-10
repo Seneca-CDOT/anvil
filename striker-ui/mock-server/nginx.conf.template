@@ -1,0 +1,149 @@
+# Run as a unique, less privileged user for security reasons.
+# Default: nobody nobody
+# https://nginx.org/en/docs/ngx_core_module.html#user
+# https://en.wikipedia.org/wiki/Principle_of_least_privilege
+user www-data;
+
+# Let nginx pick how many worker processes to run (based on CPU cores)
+worker_processes auto;
+
+# Maximum number of open files per worker process.
+# Should be > worker_connections.
+# Default: no limit
+# https://nginx.org/en/docs/ngx_core_module.html#worker_rlimit_nofile
+worker_rlimit_nofile 8192;
+
+events {
+  # Number of simultaneous client connections we can handle per worker
+  worker_connections 8000;
+  # Reduce CPU load (requires Linux 2.6 or later)
+  use epoll;
+}
+
+http {
+  # Use utf-8 for the charset on our content-type headers
+  charset   utf-8;
+
+  # Don't send version number in the "Server" response header.
+  server_tokens off;
+
+  # Serve resources with proper MIME type
+  include       mime.types;
+
+  # Log errors and warnings to this file
+  # This is only used when you don't override it on a `server` level
+  error_log /var/log/nginx/error.log warn;
+  # Log access to this file
+  # https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log
+  access_log /var/log/nginx/access.log;
+
+  # Default to binary data if we can't map the type
+  default_type  application/octet-stream;
+
+  # Update charset_types to match updated mime.types.
+  charset_types
+      text/css
+      text/plain
+      text/vnd.wap.wml
+      text/javascript
+      text/markdown
+      text/calendar
+      text/x-component
+      text/vcard
+      text/cache-manifest
+      text/vtt
+      application/json
+      application/manifest+json;
+
+  # Improve the efficiency of writes
+  sendfile on;
+
+  # Don't send out partial frames; this increases throughput
+  tcp_nopush on;
+
+  # Enable gzip compression
+  gzip on;
+  # Compression level of 5 to find a balance between CPU and size (levels are 1-9)
+  gzip_comp_level 5;
+  # Don't compress anything that's already small
+  gzip_min_length 256;
+  # Compress data even for clients that are connecting to us via proxies
+  gzip_proxied any;
+  # Tell proxies to cache both the gzipped and regular version of a resource
+  # whenever the client's Accept-Encoding capabilities header varies;
+  gzip_vary on;
+  # Compress all output labeled with one of the following MIME-types.
+  # NOTE: `text/html` is always compressed by gzip module.
+  gzip_types
+    application/atom+xml
+    application/geo+json
+    application/javascript
+    application/x-javascript
+    application/json
+    application/ld+json
+    application/manifest+json
+    application/rdf+xml
+    application/rss+xml
+    application/vnd.ms-fontobject
+    application/wasm
+    application/x-web-app-manifest+json
+    application/xhtml+xml
+    application/xml
+    font/eot
+    font/otf
+    font/ttf
+    image/bmp
+    image/svg+xml
+    text/cache-manifest
+    text/calendar
+    text/css
+    text/javascript
+    text/markdown
+    text/plain
+    text/xml
+    text/vcard
+    text/vnd.rim.location.xloc
+    text/vtt
+    text/x-component
+    text/x-cross-domain-policy;
+
+  # SSL
+  include /etc/letsencrypt/options-ssl-nginx.conf;
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+  ssl_certificate /etc/letsencrypt/live/${HOST}/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/${HOST}/privkey.pem;
+  # Following SSL configs are from https://ssl-config.mozilla.org/ (Intermediate)
+  # Types + size of caches storing session params
+  ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
+  # HSTS
+  add_header Strict-Transport-Security "max-age=63072000" always;
+  # OCSP stapling we can verify this by using the site
+  # https://www.digicert.com/kb/ssl-support/nginx-enable-ocsp-stapling-on-server.htm
+  ssl_stapling on;
+  ssl_stapling_verify on;
+  # Verify chain of trust of OCSP response using Root CA and Intermediate certs
+  ssl_trusted_certificate /etc/letsencrypt/live/${HOST}/chain.pem;
+
+  server {
+    listen 443 ssl http2;
+    server_name ${HOST};
+
+    # Let's Encrypt route
+    location /.well-known/acme-challenge/ {
+      root /var/www/certbot;
+    }
+
+    location / {
+      # Directory from which we serve static content
+      root /var/www/data;
+
+      # Try serving static content, and if not found continue with @proxy
+      try_files $uri $uri/ @proxy;
+    }
+
+    location @proxy {
+      proxy_cache_bypass 1;
+      proxy_pass http://server:4000;
+    }
+  }
+}
