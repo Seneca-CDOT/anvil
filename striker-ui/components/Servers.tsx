@@ -86,6 +86,8 @@ const Servers = ({ anvil }: { anvil: AnvilListItem[] }): JSX.Element => {
                       button
                       className={classes.button}
                       key={server.server_uuid}
+                      component="a"
+                      href={`/server/${server.server_uuid}`}
                     >
                       <Box display="flex" flexDirection="row" width="100%">
                         <Box p={1}>
